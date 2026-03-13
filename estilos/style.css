@@ -107,3 +107,73 @@ div#social a:hover {
   color: var(--destaque-inverso);
   transition-duration: .5s;
 }
+
+section#detalhes {
+  grid-column: 2;
+}
+
+article {
+  background-color: var(--texto-inverso);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+article h2 {
+  color: var(--destaque);
+  margin-bottom: 20px;
+}
+
+#skill-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+#skill-container .info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#skill-container .nome {
+  font-weight: bold;
+  color: var(--texto);
+}
+
+#skill-container .porcent {
+  font-weight: bold;
+  color: var(--destaque);
+}
+
+#skill-container .barra {
+  width: 100%;
+  height: 8px;
+  background-color: var(--fundo-principal);
+  border-radius: 4px;
+}
+
+#skill-container .progresso {
+  height: 100%;
+  background-color: var(--destaque-inverso);
+  border-radius: 4px;
+}
+
+#formacao-container {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 15px;
+}
+
+#formacao-container .curso {
+  background-color: var(--fundo-principal);
+  border-radius: 8px;
+  border-left: 5px solid var(--destaque-inverso);
+  padding-left: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  #skill-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
