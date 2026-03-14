@@ -6,6 +6,9 @@
   --destaque
   --destaque-inverso
   --fundo-card(mesma do texto inverso)
+
+
+  Media-query celular
 */
 
 :root {
@@ -14,6 +17,7 @@
   --texto-inverso: #ffffff;
   --destaque: #0077ff;
   --destaque-inverso: #66bbff;
+  --fundo-card: #ffffff;
 }
 
 * {
@@ -29,6 +33,15 @@ body {
   color: var(--texto);
 }
 
+body.escuro {
+  --fundo-principal: #222222;
+  --texto: #e0e0e0;
+  --texto-inverso: #333333;
+  --destaque: #0de7fa;
+  --destaque-inverso: #31b68b;
+  --fundo-card: #079ba5;
+}
+
 header {
   background-color: var(--destaque);
   color: var(--texto);
@@ -36,6 +49,9 @@ header {
   display: flex;
   justify-content: flex-end;
   align-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 nav#menu ul {
@@ -112,6 +128,39 @@ section#detalhes {
   grid-column: 2;
 }
 
+article#eu {
+  background-color: var(--texto-inverso);
+  display: grid;
+  grid-column: 2;
+}
+
+article#eu .sobre-mim {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+article#eu h1 {
+  color: var(--destaque);
+  margin: 15px 0;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+article#eu P {
+  flex: 1;
+  max-width: 700px;
+  margin-top: 20px;
+  text-align: justify;
+}
+
+article#eu img {
+  width: 100%;
+  max-width: 280px;
+  margin: 30px auto;
+}
+
 article {
   background-color: var(--texto-inverso);
   padding: 20px;
@@ -172,8 +221,90 @@ article h2 {
   padding-left: 15px;
 }
 
-@media screen and (min-width: 768px) {
+#projeto-container {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 20px;
+}
+
+#projeto-container .projeto {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: var(--fundo-principal);
+  padding: 10px;
+  border-radius: 8px;
+  border-left: 5px solid var(--destaque-inverso);
+}
+
+#projeto-container .foto {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+footer {
+  background-color: var(--destaque);
+  color: var(--texto-inverso);
+  text-align: center;
+  padding: 15px;
+}
+
+footer a {
+  color: var(--texto-inverso);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: var(--destaque-inverso);
+}
+
+@media screen and (min-width: 992px) {
+  main {
+    grid-template-columns: auto 300px  1fr auto;
+  }
+
+  section#ficha {
+    grid-column: 2 / 3 ;
+    height: fit-content;
+    position: sticky;
+    top: 65px;
+  }
+
+  section#detalhes {
+    grid-column: 3 / 4;
+  }
+
+  article#eu .sobre-mim {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+}
+
+  article#eu P {
+  width: 50%;
+}
+
   #skill-container {
     grid-template-columns: 1fr 1fr;
+  }
+
+  #projeto-container .projeto {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  #projeto-container .projeto-info {
+    max-width: 80%;
+  }
+
+  #projeto-container .foto {
+    aspect-ratio: 1/1;
+    max-width: 20%;
+    max-height: 200px;
   }
 }
